@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Little Bird of Night Patrol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="game-title">The Little Bird of Night Patrol</h1>
+    
+    <div class="main-content">
+        <div class="game-container">
+            <canvas id="gameCanvas" class="game-canvas" width="360" height="640"></canvas>
+            
+            <div class="ui-overlay">
+            <div class="score-display">0</div>
+            <div class="high-score" id="highScoreDisplay">最高分:<br>简单: 0<br>普通: 0<br>困难: 0</div>
+        </div>
+        
+        <div class="game-screen start-screen">
+            <h2 class="screen-title">夜间巡逻</h2>
+            <div id="registration-form">
+                <input type="text" id="nickname-input" placeholder="输入昵称" />
+                <button id="register-btn" class="btn">注册</button>
+            </div>
+            <div id="user-info" style="display: none;">
+                <p>欢迎, <span id="nickname-display"></span></p>
+            </div>
+            <p class="instructions">点击屏幕、空格键或鼠标左键控制小鸟飞行<br>避开黑色高楼建筑</p>
+            
+            <div class="difficulty-selector">
+                <div class="difficulty-btn active" data-difficulty="easy">简单</div>
+                <div class="difficulty-btn" data-difficulty="normal">普通</div>
+                <div class="difficulty-btn" data-difficulty="hard">困难</div>
+            </div>
+            
+            <button class="btn start-btn">开始游戏</button>
+            <button class="btn leaderboard-btn">排行榜</button>
+            <input type="file" id="level-file-input" accept=".json" style="display: none;">
+            <button class="btn" onclick="document.getElementById('level-file-input').click()">加载关卡</button>
+        </div>
+        
+        <div class="game-screen game-over-screen">
+            <h2 class="screen-title">游戏结束</h2>
+            <div class="final-score">0</div>
+            <div id="currentDifficulty" style="color: #00a8ff; margin-bottom: 10px;"></div>
+            <button class="btn restart-btn">重新开始</button>
+            <button class="btn menu-btn">返回菜单</button>
+        </div>
+
+        <div class="game-screen leaderboard-screen" style="display: none;">
+            <h2 class="screen-title">排行榜</h2>
+            <div id="leaderboard-content"></div>
+            <button class="btn menu-btn">返回菜单</button>
+            </div>
+        </div>
+        
+        <div class="customization-panel">
+            <h3 class="panel-title">游戏设置</h3>
+            
+            <div class="mechanical-border">
+                <div class="toggle-container">
+                    <span class="toggle-label">空气边缘辅助</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="edgeAssistToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="skin-option">
+                    <label class="skin-label">小鸟皮肤</label>
+                    <div class="skin-grid" id="birdGrid">
+                        <!-- 小鸟皮肤选项将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+                
+                <div class="skin-option">
+                    <label class="skin-label">障碍物皮肤</label>
+                    <div class="skin-grid" id="obstacleGrid">
+                        <!-- 障碍物皮肤选项将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

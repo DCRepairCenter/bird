@@ -1,0 +1,16 @@
+{
+  "name": "bird-game",
+  "version": "1.0.0",
+  "description": "A simple bird game",
+  "main": "main.go",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
